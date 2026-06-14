@@ -1,0 +1,7 @@
+project_name   = "MyApp"
+dotnet_version = "10.0"
+output_path    = "./output"
+include_docker = true
+include_ci_cd  = true
+include_tests  = true
+database_port  = 5432

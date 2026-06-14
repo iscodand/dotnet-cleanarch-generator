@@ -1,0 +1,10 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using ${project_name}.Infrastructure.Identity.Models;
+
+namespace ${project_name}.Infrastructure.Identity.Context;
+
+public class IdentityContext : IdentityDbContext<ApplicationUser>
+{
+    public IdentityContext(DbContextOptions<IdentityContext> options) : base(options) { }
+}
