@@ -1,0 +1,30 @@
+namespace ${project_name}.Application.Common;
+
+public class Result<T>
+{
+    public bool Succeeded { get; private set; }
+    public T? Data { get; private set; }
+    public IReadOnlyList<string> Errors { get; private set; }
+
+    private Result(bool succeeded, T? data, IEnumerable<string>? errors)
+    {
+        Succeeded = succeeded;
+        Data = data;
+        Errors = errors?.ToList().AsReadOnly() ?? new List<string>().AsReadOnly();
+    }
+
+    public static Result<T> Success(T data) => new(true, data, null);
+    public static Result<T> Failure(IEnumerable<string> errors) => new(false, default, errors);
+    public static Result<T> Failure(string error) => new(false, default, new[] { error });
+}
+
+public class PagedResult<T>
+{
+    public IReadOnlyList<T> Items { get; set; } = new List<T>();
+    public int TotalCount { get; set; }
+    public int Page { get; set; }
+    public int PageSize { get; set; }
+    public int TotalPages => (int)Math.Ceiling(TotalCount / (double)PageSize);
+    public bool HasPreviousPage => Page > 1;
+    public bool HasNextPage => Page < TotalPages;
+}

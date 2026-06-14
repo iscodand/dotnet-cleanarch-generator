@@ -1,0 +1,25 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=${database_port};Database=${project_name_lower}_db;Username=postgres;Password=postgres",
+    "IdentityConnection": "Host=localhost;Port=${database_port};Database=${project_name_lower}_identity_db;Username=postgres;Password=postgres"
+  },
+  "JwtSettings": {
+    "Key": "CHANGE-THIS-TO-A-SECURE-KEY-AT-LEAST-32-CHARS",
+    "Issuer": "${project_name}",
+    "Audience": "${project_name}",
+    "DurationInMinutes": 60
+  },
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "Microsoft.Hosting.Lifetime": "Information"
+      }
+    },
+    "WriteTo": [
+      { "Name": "Console" }
+    ]
+  },
+  "AllowedHosts": "*"
+}

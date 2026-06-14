@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net${dotnet_version}</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>${project_name}.Infrastructure.Ioc</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\${project_name}.Application\${project_name}.Application.csproj" />
+    <ProjectReference Include="..\${project_name}.Infrastructure.Data\${project_name}.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\${project_name}.Infrastructure.Identity\${project_name}.Infrastructure.Identity.csproj" />
+    <ProjectReference Include="..\${project_name}.Infrastructure.Shared\${project_name}.Infrastructure.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

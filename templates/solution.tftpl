@@ -1,0 +1,71 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "${project_name}.Domain", "src\${project_name}.Domain\${project_name}.Domain.csproj", "{${guid_domain}}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "${project_name}.Application", "src\${project_name}.Application\${project_name}.Application.csproj", "{${guid_application}}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "${project_name}.Infrastructure.Data", "src\${project_name}.Infrastructure.Data\${project_name}.Infrastructure.Data.csproj", "{${guid_infra_data}}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "${project_name}.Infrastructure.Identity", "src\${project_name}.Infrastructure.Identity\${project_name}.Infrastructure.Identity.csproj", "{${guid_infra_identity}}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "${project_name}.Infrastructure.Shared", "src\${project_name}.Infrastructure.Shared\${project_name}.Infrastructure.Shared.csproj", "{${guid_infra_shared}}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "${project_name}.Infrastructure.Ioc", "src\${project_name}.Infrastructure.Ioc\${project_name}.Infrastructure.Ioc.csproj", "{${guid_infra_ioc}}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "${project_name}.WebApi", "src\${project_name}.WebApi\${project_name}.WebApi.csproj", "{${guid_webapi}}"
+EndProject
+${tests_section}
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{${guid_src_folder}}"
+EndProject
+${tests_folder_section}
+Global
+  GlobalSection(SolutionConfigurationPlatforms) = preSolution
+    Debug|Any CPU = Debug|Any CPU
+    Release|Any CPU = Release|Any CPU
+  EndGlobalSection
+  GlobalSection(ProjectConfigurationPlatforms) = postSolution
+    {${guid_domain}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {${guid_domain}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {${guid_domain}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {${guid_domain}}.Release|Any CPU.Build.0 = Release|Any CPU
+    {${guid_application}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {${guid_application}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {${guid_application}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {${guid_application}}.Release|Any CPU.Build.0 = Release|Any CPU
+    {${guid_infra_data}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {${guid_infra_data}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {${guid_infra_data}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {${guid_infra_data}}.Release|Any CPU.Build.0 = Release|Any CPU
+    {${guid_infra_identity}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {${guid_infra_identity}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {${guid_infra_identity}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {${guid_infra_identity}}.Release|Any CPU.Build.0 = Release|Any CPU
+    {${guid_infra_shared}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {${guid_infra_shared}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {${guid_infra_shared}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {${guid_infra_shared}}.Release|Any CPU.Build.0 = Release|Any CPU
+    {${guid_infra_ioc}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {${guid_infra_ioc}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {${guid_infra_ioc}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {${guid_infra_ioc}}.Release|Any CPU.Build.0 = Release|Any CPU
+    {${guid_webapi}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {${guid_webapi}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {${guid_webapi}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {${guid_webapi}}.Release|Any CPU.Build.0 = Release|Any CPU
+${tests_config_section}
+  EndGlobalSection
+  GlobalSection(NestedProjects) = preSolution
+    {${guid_domain}} = {${guid_src_folder}}
+    {${guid_application}} = {${guid_src_folder}}
+    {${guid_infra_data}} = {${guid_src_folder}}
+    {${guid_infra_identity}} = {${guid_src_folder}}
+    {${guid_infra_shared}} = {${guid_src_folder}}
+    {${guid_infra_ioc}} = {${guid_src_folder}}
+    {${guid_webapi}} = {${guid_src_folder}}
+${tests_nested_section}
+  EndGlobalSection
+EndGlobal

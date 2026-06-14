@@ -1,0 +1,37 @@
+name: CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '${dotnet_version}.x'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Test
+        run: dotnet test tests/${project_name}.UnitTests/${project_name}.UnitTests.csproj --no-build --configuration Release
+
+      - name: Build Docker image
+        run: docker build -f docker/Dockerfile -t ${project_name_lower}:latest .
+
+      # TODO: Add your container registry push and deploy steps here
+      # Example for AWS ECR:
+      # - name: Push to ECR
+      #   run: |
+      #     aws ecr get-login-password | docker login --username AWS --password-stdin $ECR_REGISTRY
+      #     docker tag ${project_name_lower}:latest $ECR_REGISTRY/${project_name_lower}:latest
+      #     docker push $ECR_REGISTRY/${project_name_lower}:latest

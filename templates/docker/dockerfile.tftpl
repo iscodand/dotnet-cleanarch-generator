@@ -1,0 +1,28 @@
+FROM mcr.microsoft.com/dotnet/sdk:${dotnet_version} AS build
+WORKDIR /app
+
+COPY src/**/*.csproj ./
+RUN for file in *.csproj; do \
+      dir=$${file%.csproj}; \
+      mkdir -p "src/$$dir"; \
+      mv "$$file" "src/$$dir/"; \
+    done
+
+COPY *.sln .
+RUN dotnet restore
+
+COPY src/ src/
+RUN dotnet publish src/${project_name}.WebApi/${project_name}.WebApi.csproj -c Release -o /publish --no-restore
+
+FROM mcr.microsoft.com/dotnet/aspnet:${dotnet_version}-alpine AS runtime
+WORKDIR /app
+
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+
+COPY --from=build /publish .
+
+EXPOSE 8080
+ENV ASPNETCORE_URLS=http://+:8080
+
+ENTRYPOINT ["dotnet", "${project_name}.WebApi.dll"]
